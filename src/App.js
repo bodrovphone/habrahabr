@@ -31,11 +31,25 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.httpGetAsync();
+    // this.httpGetAsync();
   }
 
   render() {
-    console.log(this.state);
+    fetch('https://randomuser.me/api?seed=%22ph%27nglui%20mglw%27nafh%20Cthulhu%20R%27lyeh%20wgah%27nagl%20fhtagn%22&results=25&nat=US')
+    .then( function(response) {
+      return response;
+    })
+    .then( function(response) {
+      return response.json();
+    })
+    .then( function(data) {
+        console.log(data)
+      }
+      )
+    .catch( function(e) {
+ console.log(e)
+    })
+  
     return (
       <div className="App">
         <div className="App-header">
