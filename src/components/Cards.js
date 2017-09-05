@@ -2,18 +2,25 @@ import React from 'react';
 import UserCard from './UserCard';
 import {PanelGroup, Grid} from 'react-bootstrap';
 
-const Cards = (props) => {
+class Cards extends React.Component {
+        render () {
+        if (Array.isArray(this.props.users)) {
         return (
         	<Grid>
 	            <PanelGroup>
 	                {
-	                    props.users.map((user, id) => {
+	                    this.props.users.map((user, id) => {
 	                        return <UserCard user={user} key={id}/>
 	                    })
 	                }
 	            </PanelGroup>
             </Grid>
-            )
+            )} else {
+            return (
+                <div>This is a git image loading</div>
+                )
+        }
+    }
 };
 
 export default Cards;

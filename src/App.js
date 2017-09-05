@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Cards from './components/Cards';
-import NavbarInstance from './components/NavbarInstance';
+import Routes from './components/routes';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.fetchingUsersData = this.fetchingUsersData.bind(this);
-    this.conditionalRendering = this.conditionalRendering.bind(this);
-
     this.state = {
         users: '',
         infoStatus: '',
-        renderFlag: 'users'
+        posts: 'Test'
     };
   }
 
@@ -37,18 +34,9 @@ class App extends Component {
     this.fetchingUsersData();
   }
 
-  conditionalRendering(e) {
-    const result = (e.target.id === 'posts') ? <Cards users={this.state.users} /> : <Posts posts={this.state.posts} />;
-    return result;
-  }
-
   render() {
-    console.log(this.state.users)
     return (
-      <div className="App">
-          <NavbarInstance conditionalRendering={this.conditionalRendering}/>
-        { this.state.users && this.state.renderFlag === 'users' ? <Cards users={this.state.users} /> : 'it is loading gif image I swear'}
-      </div>
+      <Routes users={this.state.users} posts={this.state.posts}/>
     );
   }
 }

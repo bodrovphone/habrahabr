@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, NavItem, Nav} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export default class NavbarInstance extends Component {
   render() {
@@ -14,12 +15,12 @@ export default class NavbarInstance extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="##" id="posts" onClick={this.props.conditionalRendering}>Posts</NavItem>
-            <NavItem eventKey={2} href="##" id="users" onClick={this.props.conditionalRendering}>Users</NavItem>
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="##">Link Right</NavItem>
-            <NavItem eventKey={2} href="##">Link Right</NavItem>
+            <LinkContainer to='/posts'>
+              <NavItem>Posts</NavItem>
+            </LinkContainer>
+            <LinkContainer to='/'>
+              <NavItem>Users</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
