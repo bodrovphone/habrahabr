@@ -13,7 +13,7 @@ const Routes = (props) => {
             <Switch>
               <Route path='/' exact component={Home}/>
               <Route path='/users' exact component={() => <Cards users={props.users}/>}/>
-              <Route path='/posts' exact component={() => <Posts posts={props.posts}/>}/>
+              <Route path='/posts' exact component={() => <Posts posts={props.posts} users={props.users}/>}/>
             </Switch>
             </div>
         </BrowserRouter>

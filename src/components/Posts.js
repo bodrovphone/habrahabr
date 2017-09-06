@@ -11,7 +11,7 @@ class Posts extends React.Component {
                 <PanelGroup>
                     {
                         this.props.posts.map((post, id) => {
-                            return <UserPost post={post} key={id}/>
+                            return <UserPost post={post} key={id} users={this.props.users} />
                         })
                     }
                 </PanelGroup>

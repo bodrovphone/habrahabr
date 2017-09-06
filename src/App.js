@@ -32,14 +32,14 @@ class App extends Component {
   }
 
   fetchingPostsData() {
-    var bufferText, bufferImages;
     fetch('https://jsonplaceholder.typicode.com/comments?postId=1')
     .then( (response) => {
       return response.json();
     })
     .then( (data) => {
-        bufferText = data;
-        console.log(bufferText)
+        this.setState({
+          posts: data
+        });
       }
       )
     .catch( function(e) {
@@ -49,10 +49,11 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchingUsersData();
+    this.fetchingPostsData();
   }
 
   render() {
-    this.fetchingPostsData();
+    console.log(this.state.posts);
     return (
       <Routes users={this.state.users} posts={this.state.posts}/>
     );
