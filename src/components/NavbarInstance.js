@@ -8,8 +8,10 @@ export default class NavbarInstance extends Component {
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="##">My Test React App
-            </a>
+            <LinkContainer to='/'>
+              <a>Home</a>
+            </LinkContainer>
+
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -18,7 +20,7 @@ export default class NavbarInstance extends Component {
             <LinkContainer to='/posts'>
               <NavItem>Posts</NavItem>
             </LinkContainer>
-            <LinkContainer to='/'>
+            <LinkContainer to='/users'>
               <NavItem>Users</NavItem>
             </LinkContainer>
           </Nav>

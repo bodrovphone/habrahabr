@@ -1,9 +1,27 @@
 import React from 'react';
+import UserPost from './UserPost';
+import {PanelGroup, Grid} from 'react-bootstrap';
 
-const Posts = (props) => {
+
+class Posts extends React.Component {
+        render () {
+        if (Array.isArray(this.props.posts)) {
         return (
-            <div>{props.posts}</div>
-            )
+            <Grid>
+                <PanelGroup>
+                    {
+                        this.props.posts.map((post, id) => {
+                            return <UserPost post={post} key={id}/>
+                        })
+                    }
+                </PanelGroup>
+            </Grid>
+            )} else {
+            return (
+                <div>This is a git image loading posts</div>
+                )
+        }
+    }
 };
 
 export default Posts;
