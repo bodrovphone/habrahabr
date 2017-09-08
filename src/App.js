@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
         users: '',
         infoStatus: '',
-        posts: ''
+        posts: '',
+        isLoading: false
     };
   }
 
@@ -55,7 +56,7 @@ class App extends Component {
   render() {
     console.log(this.state.posts);
     return (
-      <Routes users={this.state.users} posts={this.state.posts}/>
+      <Routes users={this.state.users} posts={this.state.posts} isLoading={this.state.isLoading}/>
     );
   }
 }

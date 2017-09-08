@@ -1,9 +1,10 @@
 import React from 'react';
 import {Panel, Thumbnail, Glyphicon, Jumbotron } from 'react-bootstrap';
+import SCN from 'string-capitalize-name';
 
 const UserCard = (props) => {
         const image = props.user.picture.large;
-        const name = `${props.user.name.title} ${props.user.name.first} ${props.user.name.last}`;
+        const name = SCN(`${props.user.name.title} ${props.user.name.first} ${props.user.name.last}`);
         const userName = props.user.login.username;
         const email = props.user.email;
         const registered = props.user.registered;
