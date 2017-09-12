@@ -4,19 +4,19 @@ import {PanelGroup, Grid} from 'react-bootstrap';
 import Waypoint from 'react-waypoint';
 
 const Posts = (props) => {
-        if (Array.isArray(props.posts)) {
+        if (Array.isArray(props.data.posts)) {
         return (
             <Grid>
                 <PanelGroup>
                     {
-                        props.posts.map((post, id) => {
-                            if (id === props.posts.length - 2) {
+                        props.data.posts.map((post, id) => {
+                            if (id === props.data.posts.length - 2) {
                                 return  <div key={id+"unique"}>
-                                            <Waypoint onLeave={(props.loadMorePosts)}  />
-                                            <UserPost post={post} key={id} users={props.users} />
+                                            <Waypoint onLeave={() => { props.data.fetchingPostsData(id) }}  />
+                                            <UserPost post={post} key={id} users={props.data.users} />
                                         </div>
                             }
-                            return <UserPost post={post} key={id} users={props.users} />
+                            return <UserPost post={post} key={id} users={props.data.users} />
                         })
                     }
                 </PanelGroup>
@@ -27,5 +27,7 @@ const Posts = (props) => {
                 )
         }
 };
+
+// 
 
 export default Posts;

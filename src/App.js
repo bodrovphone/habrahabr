@@ -10,8 +10,7 @@ class App extends Component {
     this.state = {
         users: '',
         infoStatus: '',
-        posts: '',
-        isLoading: false
+        posts: ''
     };
   }
 
@@ -32,15 +31,21 @@ class App extends Component {
     })
   }
 
-  fetchingPostsData() {
-    fetch('https://jsonplaceholder.typicode.com/comments?postId=1')
+
+
+  fetchingPostsData(id = 1) {
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${id}`)
     .then( (response) => {
       return response.json();
     })
     .then( (data) => {
+        if (!this.state.posts) {
         this.setState({
           posts: data
-        });
+        }) } else {
+          this.setState({
+          posts: this.state.posts.concat(data)
+        }) }
       }
       )
     .catch( function(e) {
@@ -56,7 +61,7 @@ class App extends Component {
   render() {
     console.log(this.state.posts);
     return (
-      <Routes users={this.state.users} posts={this.state.posts} isLoading={this.state.isLoading}/>
+      <Routes users={this.state.users} posts={this.state.posts} fetchingPostsData={this.fetchingPostsData}/>
     );
   }
 }
