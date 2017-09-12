@@ -15,7 +15,7 @@ export default class Routes extends Component {
                         <Switch>
                             <Route path='/' exact component={Home}/>
                             <Route path='/users' exact component={() => <Cards users={this.props.users} isLoading={this.props.isLoading}/>}/>
-                            <Route path='/posts' exact component={() => <Posts posts={this.props.posts} users={this.props.users} isLoading={this.props.isLoading}/>}/>
+                            <Route path='/posts' exact component={() => <Posts posts={this.props.posts} users={this.props.users} isLoading={this.props.isLoading} />}/>
                         </Switch>   
                     </div>
             </BrowserRouter>
