@@ -10,15 +10,11 @@ const Posts = (props) => {
                 <PanelGroup>
                     {
                         props.data.posts.map((post, id) => {
-                            if (id === props.data.posts.length - 2) {
-                                return  <div key={id+"unique"}>
-                                            <Waypoint onLeave={() => { props.data.fetchingPostsData(id) }}  />
-                                            <UserPost post={post} key={id} users={props.data.users} />
-                                        </div>
+                                return  <UserPost post={post} key={id} users={props.data.users} />
                             }
-                            return <UserPost post={post} key={id} users={props.data.users} />
-                        })
+                        )
                     }
+                    <Waypoint onEnter={() => { props.data.fetchingPostsData(props.data.posts.length) }}  />
                 </PanelGroup>
             </Grid>
             )} else {
