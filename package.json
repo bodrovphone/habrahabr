@@ -2,7 +2,7 @@
   "name": "habrahabr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://myusername.github.io/my-app",
+  "homepage": "https://bodrovphone.github.io/habrahabr",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",
